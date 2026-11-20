@@ -1,26 +1,17 @@
-ROUTINE_VIBE — Study With Gazelle
+# routine_vibe — Study With Gazelle
 
-این بسته، شروع پروژه مستقل routine_vibe است. نامی که داخل خود برنامه نمایش داده می‌شود Study With Gazelle است.
+This build adds the avatar system to the starter app:
+- First login requires choosing one of the two starter avatars (girl or boy).
+- The supplied avatar designs are split into eight individual image files.
+- Day 3 and day 5 avatars are grayscale until unlocked and show progress bars.
+- The Day 7 crown avatar shows the small gold lock while unavailable.
+- A study day is recorded once per UTC date when a focus timer completes.
+- Burgundy and Old Money/Navy appearance swatches are visible but locked/disabled.
 
-مهم:
-- این پروژه به Supabase قدیمی متصل نیست؛ آدرس و کلید داخل index.html عمداً جای‌نگهدار هستند.
-- هیچ تغییری در مخزن یا دیتابیس قبلی شما انجام نشده است.
-- فایل supabase/setup.sql فقط برای پروژه Supabase جدید است. قبل از اجرای آن، مطمئن شوید در داشبورد پروژه جدید هستید.
-- هرگز Service Role Key را در index.html قرار ندهید.
+## Before publishing
+1. In the NEW Supabase project, run `supabase/avatar_upgrade.sql` once in SQL Editor.
+2. In `index.html`, replace `YOUR_NEW_SUPABASE_PROJECT_URL` and `YOUR_NEW_SUPABASE_PUBLISHABLE_KEY` with the new Project URL and Publishable key.
+3. Deploy `supabase/functions/auth-username-login` to this same new Supabase project if username login is needed.
+4. Upload `index.html`, the entire `assets` folder, and the `supabase` folder to the root of the `routine_vibe` GitHub repository.
 
-محتوای نسخه آغازین:
-- رابط Pomodoro و تنظیمات زمان
-- To-Do خصوصی با افزودن/ویرایش/حذف/یادداشت و پیشرفت
-- ورود با ایمیل یا نام کاربری (ورود با نام کاربری به Edge Function نیاز دارد)
-- شمارنده حضور زنده و تعداد اعضا (نیازمند Supabase/Realt ime)
-- بخش‌هایی از Community و Leaderboard در این نسخه هنوز نمایشی/ناتمام هستند.
-
-راه‌اندازی بعدی:
-1) یک پروژه Supabase کاملاً جدید بسازید.
-2) در SQL Editor همان پروژه جدید، فایل supabase/setup.sql را اجرا کنید.
-3) از Project Settings > API، Project URL و Publishable key را بردارید.
-4) در index.html فقط دو مقدار YOUR_NEW_SUPABASE_PROJECT_URL و YOUR_NEW_SUPABASE_PUBLISHABLE_KEY را با مقادیر پروژه جدید جایگزین کنید.
-5) Edge Function مسیر supabase/functions/auth-username-login را با Supabase CLI در پروژه جدید deploy کنید و SUPABASE_SERVICE_ROLE_KEY را فقط به‌صورت secret سمت سرور تنظیم کنید.
-6) سپس فایل‌ها را در ریشه مخزن GitHub به‌صورت Upload files بارگذاری کنید.
-
-این بسته هنوز نسخه نهایی تمام امکانات درخواستی نیست؛ قبل از انتشار عمومی باید اتصال Supabase و بخش‌های ناتمام تکمیل و تست شوند.
+Do not rerun the original setup SQL. Never put a service-role key in the frontend. Do not change the old Supabase project or old repository.
